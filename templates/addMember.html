@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="add-or-edit">{% block title %} Add a member {% endblock %}</h2>
+    <form method="post">
+        <label for="name">Name</label>
+        <br>
+        <input type="text" name="name"
+               placeholder="Name"
+               value="{{ request.form['name'] }}"></input>
+        <br>
+        <label for="email">Email</label>
+        <br>
+        <input type="email" name="email"
+               placeholder="Email"
+               value="{{ request.form['email'] }}"></input>
+        <br>
+        <label for="phone_number">Phone Number</label>
+        <br>
+        <input type="text" name="phone_number"
+                placeholder="Phone number"
+                value="{{ request.form['phone_number'] }}"></input>
+        <br>
+        <label for="address">Address</label>
+        <br>
+        <input type="text" name="address"
+                placeholder="Address"
+                value="{{ request.form['address'] }}"></input>
+        <br>
+        <label for="registration_date">Registration Date</label>
+        <br>
+        <input type="date" name="registration_date"
+                placeholder="Registration date"
+                value="{{ request.form['registration_date'] }}"></input>
+        <br>        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

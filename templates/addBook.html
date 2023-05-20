@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="add-or-edit">{% block title %} Add a Book {% endblock %}</h2>
+    <form method="post" enctype="multipart/form-data">
+      <div class="fields">
+      <label for="title">Title</label>
+        <br>
+        <input type="text" name="title"
+               placeholder="Book title"
+               value="{{ request.form['title'] }}"></input>
+        <br>
+        <label for="author">Author</label>
+        <br>
+        <input type="text" name="author"
+               placeholder="Author Name"
+               value="{{ request.form['author'] }}"></input>
+        <br>
+        <label for="published_year">Publication Year</label>
+        <br>
+        <input type="text" name="published_year"
+                placeholder="Publication Year"
+                value="{{ request.form['published_year'] }}"></input>
+        <br>
+
+      <label for="isbn">ISBN</label>
+        <br>
+        <input type="text" name="isbn" placeholder="ISBN" value="{{ request.form['isbn'] }}"></input>
+        <br>
+        
+        <label for="available_copies">Available Copies</label>
+        <br>
+        <input type="number" name="available_copies" placeholder="Available Copies" value="{{ request.form['available_copies'] }}"></input>
+        <br>
+        
+        <label for="total_copies">Total Copies</label>
+        <br>
+        <input type="number" name="total_copies" placeholder="Total Copies" value="{{ request.form['total_copies'] }}"></input>
+        <br>
+        
+        <label for="supplier_id">Supplier ID</label>
+        <br>
+        <input type="text" name="supplier_id" placeholder="Supplier ID" value="{{ request.form['supplier_id'] }}"></input>
+        <br>
+      
+        <label for="description">Description</label>
+        <br>
+        <textarea name="description"
+                  placeholder="Book description"
+                  rows="15"
+                  cols="60"
+                  >{{ request.form['description'] }}</textarea>
+        <br>
+
+        <label for="image" class="file-upload">
+          <span>Choose Image</span>
+          <input type="file" name="image" id="image" accept="image/*">
+        </label>
+      <br>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+{% endblock %}

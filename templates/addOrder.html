@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="add-or-edit">{% block title %} Add an order {% endblock %}</h2>
+    <form method="post">
+        <label for="title">Book ID</label>
+        <br>
+        <input type="text" name="book_id"
+               placeholder="Book ID"
+               value="{{ request.form['book_ID'] }}"></input>
+        <br>
+        <label for="member_id">Member ID</label>
+        <br>
+        <input type="text" name="member_id"
+               placeholder="Member ID"
+               value="{{ request.form['member_id'] }}"></input>
+        <br>
+        <label for="order_date">Order Date</label>
+        <br>
+        <input type="date" name="order_date"
+                placeholder="Order date"
+                value="{{ request.form['order_date'] }}"></input>
+        <br>
+      
+        <label for="return_date">Return Date</label>
+        <br>
+        <input type="date" name="return_date"
+                placeholder="Return date"
+                value="{{ request.form['return_date'] }}"></input>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

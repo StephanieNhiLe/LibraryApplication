@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block add_link %}
+<a href="{{ url_for('addSupplier') }}" class="add">Add New Suppier</a>
+{% endblock %}
+
+{% block search %}
+<form action="{{ url_for('suppliers') }}" method="GET" class="searchForm right-form">
+  <input type="text" name="search_query" placeholder="Search by name">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+{% endblock %}
+<br>
+
+
+{% block content %}
+    <h2 class="page-header">{% block title %} Suppliers {% endblock %}</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Total Books Supplied</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for supplier in suppliers %}
+                <tr>
+                    <td>{{ supplier['id'] }}</td>
+                    <td>{{ supplier['name'] }}</td>
+                    <td>{{ supplier['email'] }}</td>
+                    <td>{{ supplier['phone_number'] }}</td>
+                    <td>{{ supplier['address'] }}</td>
+                    <td>{{ supplier['num_books_supplied'] }}</td>
+                    <td>
+                      <a href="{{ url_for('editSupplier', id=supplier.id) }}" class="edit"><i class="fas fa-edit"></i></a>     
+                      <form action="{{ url_for('deleteSupplier', id=supplier.id) }}" method="POST" class="deleteForm">
+                <button class ="delete" onclick="return confirm('Are you sure you want to delete this Supplier?')"><i class="fa-solid fa-trash"></i></button></form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

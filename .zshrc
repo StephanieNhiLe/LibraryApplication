@@ -1,0 +1,2 @@
+ZSH_DISABLED_COMPFIX=true
+

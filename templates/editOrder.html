@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="add-or-edit">Edit Order</h2>
+    <form method="POST">
+        <div>
+            <label for="book_id">Book ID:</label>
+            <input type="number" name="book_id" id="book_id" value="{{ order['book_id'] }}" required>
+        </div>
+        <div>
+            <label for="member_id">Member ID:</label>
+            <input type="number" name="member_id" id="member_id" value="{{ order['member_id'] }}" required>
+        </div>
+        <div>
+            <label for="order_date">Order Date:</label>
+            <input type="date" name="order_date" id="order_date" value="{{ order['order_date'] }}" required>
+        </div>
+        <div>
+            <label for="return_date">Return Date:</label>
+            <input type="date" name="return_date" id="return_date" value="{{ order['return_date'] }}" required>
+        </div>
+        <br>
+        <button type="submit" class="save">Save</button>
+    </form>
+{% endblock %}
